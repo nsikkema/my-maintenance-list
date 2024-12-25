@@ -1,0 +1,18 @@
+[package]
+name = "lib-api-data"
+edition = "2021"
+publish = false
+version.workspace = true
+rust-version.workspace = true
+
+[features]
+deserialize = ["dep:serde"]
+serialize = ["dep:serde"]
+type_generation = ["dep:specta"]
+
+[dependencies]
+serde = { workspace = true, features = ["derive"], optional = true }
+specta = { version = "1.0.5", features = ["typescript"], optional = true }
+
+[dev-dependencies]
+lib-api-data = {path = ".", features = ['type_generation']}
