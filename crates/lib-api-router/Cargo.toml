@@ -1,0 +1,9 @@
+[package]
+name = "lib-api-router"
+edition = "2021"
+publish = false
+version.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+axum.workspace = true
