@@ -10,3 +10,6 @@ rust-version.workspace = true
 lib-web.workspace = true
 
 axum.workspace = true
+
+[lints]
+workspace = true

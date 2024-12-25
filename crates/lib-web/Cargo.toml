@@ -31,3 +31,6 @@ flate2.workspace = true
 
 [package.metadata.cargo-machete]
 ignored = ["phf"]
+
+[lints]
+workspace = true
