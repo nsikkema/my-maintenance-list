@@ -53,6 +53,6 @@ async fn web_route(request_headers: HeaderMap, path: Option<Path<String>>) -> im
 
 pub fn web_router() -> Router {
     Router::new()
-        .route("/*path", get(web_route))
+        .route("/{*path}", get(web_route))
         .route("/", get(web_route))
 }
