@@ -1,7 +1,7 @@
 mod health;
 
-use axum::routing::get;
 use axum::Router;
+use axum::routing::get;
 
 #[derive(Clone, Debug)]
 struct AppState {}
