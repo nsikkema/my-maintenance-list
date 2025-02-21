@@ -1,6 +1,6 @@
 use camino::{Utf8Path, Utf8PathBuf};
-use flate2::write::GzEncoder;
 use flate2::Compression;
+use flate2::write::GzEncoder;
 use lib_web::{get_file_data, get_file_list, get_index_data};
 use std::env;
 use std::fs::File;

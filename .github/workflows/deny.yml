@@ -17,3 +17,8 @@ jobs:
       - name: Deny
         if: steps.filter.outputs.rust == 'true'
         uses: EmbarkStudios/cargo-deny-action@v2
+        with:
+          rust-version: "1.85.0"
+          log-level: warn
+          command: check
+          arguments: --all-features

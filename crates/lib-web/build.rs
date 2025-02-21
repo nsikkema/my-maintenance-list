@@ -1,6 +1,6 @@
 use camino::{Utf8Path, Utf8PathBuf};
-use flate2::write::GzEncoder;
 use flate2::Compression;
+use flate2::write::GzEncoder;
 use glob::glob;
 use phf_codegen::Map;
 use std::fs::File;
@@ -111,7 +111,9 @@ fn generate_dist_map(path: &Utf8Path) {
 
             let s = format!(
                 "&Resource {{data_uncompressed: include_bytes!({:?}), data_gzip: include_bytes!({:?}), mime_type: {:?}}}",
-                "data/".to_owned() + reduced_path.as_str(), "data-compressed/".to_owned() + reduced_path.as_str(), mime_type
+                "data/".to_owned() + reduced_path.as_str(),
+                "data-compressed/".to_owned() + reduced_path.as_str(),
+                mime_type
             );
 
             if reduced_path == "index.html" {
