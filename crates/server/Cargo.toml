@@ -1,0 +1,20 @@
+[package]
+name = "server"
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+version.workspace = true
+rust-version.workspace = true
+
+[features]
+debug-web = []
+
+[dependencies]
+lib-api-router.workspace = true
+lib-web-router.workspace = true
+
+axum.workspace = true
+tokio.workspace = true
+
+[lints]
+workspace = true

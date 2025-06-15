@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "Vue.vscode-typescript-vue-plugin",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "ms-azuretools.vscode-docker",
+    "tamasfe.even-better-toml",
+    "rust-lang.rust-analyzer",
+    "vadimcn.vscode-lldb"
+  ]
+}

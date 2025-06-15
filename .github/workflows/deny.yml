@@ -1,0 +1,25 @@
+name: Cargo Deny
+on: [ pull_request ]
+jobs:
+  cargo-deny:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Filter
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            rust:
+              - '**/Cargo.lock'
+              - '**/Cargo.toml'
+              - '.github/workflows/deny.yml'
+      - name: Deny
+        if: steps.filter.outputs.rust == 'true'
+        uses: EmbarkStudios/cargo-deny-action@v2
+        with:
+          rust-version: "1.85.0"
+          log-level: warn
+          command: check
+          arguments: --all-features
