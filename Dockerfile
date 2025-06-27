@@ -6,7 +6,7 @@ RUN cd crates/lib-web && npm install
 RUN cd crates/lib-web && npm run build
 
 # Build Rust Project
-FROM rust:1.87.0-bookworm AS rust-builder
+FROM rust:1.88.0-bookworm AS rust-builder
 WORKDIR /build
 COPY . .
 COPY --from=web-builder /build/crates/lib-web/dist /build/crates/lib-web/dist
@@ -15,7 +15,7 @@ ENV SKIP_RUSTFMT=true
 RUN cargo build --release
 
 # Build Rust License List
-FROM rust:1.87.0-bookworm AS rust-license
+FROM rust:1.88.0-bookworm AS rust-license
 WORKDIR /build
 COPY . .
 RUN cargo install cargo-about
