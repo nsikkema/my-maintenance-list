@@ -121,7 +121,7 @@ fn generate_dist_map(path: &Utf8Path) {
                 index_string = chars.as_str().to_string();
                 map.entry(reduced_path, "&INDEX_DATA");
             } else {
-                map.entry(reduced_path, s.as_str());
+                map.entry(reduced_path, s);
             };
         }
 
