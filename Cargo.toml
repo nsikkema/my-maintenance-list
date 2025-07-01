@@ -38,6 +38,8 @@ sqlx = { version = "0.8.6", features = ["runtime-tokio", "tls-rustls-ring-native
 [workspace.metadata.cargo-machete]
 ignored = ["axum-extra", "jsonwebtoken", "tracing", "tracing-subscriber", "serde", "serde_json", "thiserror", "validator", "sqlx"]
 
+[workspace.lints.rust]
+unsafe_code = "deny"
+
 [workspace.lints.clippy]
 unwrap_used = "deny"
-unsafe_code = "deny"
