@@ -74,7 +74,7 @@ fn generate_dist_map(path: &Utf8Path) {
 
         let mut index_string = String::new();
 
-        for path in glob(&format!("{}/**/*", input_path_str))
+        for path in glob(&format!("{input_path_str}/**/*"))
             .expect("Failed to read glob pattern.")
             .flatten()
         {
@@ -121,7 +121,7 @@ fn generate_dist_map(path: &Utf8Path) {
                 index_string = chars.as_str().to_string();
                 map.entry(reduced_path, "&INDEX_DATA");
             } else {
-                map.entry(reduced_path, s.as_str());
+                map.entry(reduced_path, s);
             };
         }
 
@@ -129,8 +129,7 @@ fn generate_dist_map(path: &Utf8Path) {
             writeln!(&mut output_file).unwrap();
             write!(
                 &mut output_file,
-                "const INDEX_DATA: Resource = {};",
-                index_string
+                "const INDEX_DATA: Resource = {index_string};"
             )
             .unwrap();
         }
