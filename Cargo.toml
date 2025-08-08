@@ -18,7 +18,7 @@ lib-web-router = { path = "crates/lib-web-router" }
 
 axum = "~0.8.4"
 axum-extra = "~0.10.1"
-camino = "~1.1.10"
+camino = "~1.1.11"
 itertools = "~0.14.0"
 jsonwebtoken = "~9.3.1"
 phf = "~0.12.1"
