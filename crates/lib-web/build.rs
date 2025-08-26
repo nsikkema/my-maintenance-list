@@ -126,22 +126,22 @@ fn generate_dist_map(path: &Utf8Path) {
         }
 
         if !index_string.is_empty() {
-            writeln!(&mut output_file).unwrap();
+            writeln!(&mut output_file).expect("Failed to write to output file.");
             write!(
                 &mut output_file,
                 "const INDEX_DATA: Resource = {index_string};"
             )
-            .unwrap();
+            .expect("Failed to write to output file.");
         }
 
-        writeln!(&mut output_file).unwrap();
+        writeln!(&mut output_file).expect("Failed to write to output file.");
         write!(
             &mut output_file,
             "const FILES: phf::Map<&'static str, &'static Resource> = {}",
             map.build()
         )
-        .unwrap();
-        writeln!(&mut output_file, ";").unwrap();
+        .expect("Failed to write to output file.");
+        writeln!(&mut output_file, ";").expect("Failed to write to output file.");
     }
 
     if env::var("SKIP_RUSTFMT").unwrap_or_default() != "true" {

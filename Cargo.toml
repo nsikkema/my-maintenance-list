@@ -18,20 +18,20 @@ lib-web-router = { path = "crates/lib-web-router" }
 
 axum = "~0.8.4"
 axum-extra = "~0.10.1"
-camino = "~1.1.10"
+camino = "~1.1.11"
 itertools = "~0.14.0"
 jsonwebtoken = "~9.3.1"
-phf = "~0.12.1"
-tokio = { version = "~1.45.1", features = ["full"] }
-phf_codegen = "~0.12.1"
-glob = "~0.3.2"
+phf = "~0.13.1"
+tokio = { version = "~1.47.1", features = ["full"] }
+phf_codegen = "~0.13.1"
+glob = "~0.3.3"
 mime_guess = "~2.0.5"
 flate2 = "~1.1.2"
 tracing = "~0.1.41"
 tracing-subscriber = "~0.3.19"
 serde = "~1.0.219"
-serde_json = "~1.0.142"
-thiserror = "~2.0.12"
+serde_json = "~1.0.143"
+thiserror = "~2.0.16"
 validator = "~0.20.0"
 sqlx = { version = "0.8.6", features = ["runtime-tokio", "tls-rustls-ring-native-roots", "sqlite", "any", "postgres", "macros"] }
 
