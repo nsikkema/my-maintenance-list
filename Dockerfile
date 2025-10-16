@@ -1,5 +1,5 @@
 # Build Web Data
-FROM node:24.8.0-trixie AS web-builder
+FROM node:25.0.0-trixie AS web-builder
 WORKDIR /build
 COPY . .
 RUN cd crates/lib-web && npm install
