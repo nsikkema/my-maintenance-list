@@ -16,7 +16,7 @@ lib-api-router = { path = "crates/lib-api-router" }
 lib-web = { path = "crates/lib-web" }
 lib-web-router = { path = "crates/lib-web-router" }
 
-axum = "~0.8.6"
+axum = "~0.8.7"
 axum-extra = "~0.10.1"
 camino = "~1.1.12"
 itertools = "~0.14.0"
