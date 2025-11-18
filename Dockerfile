@@ -22,7 +22,7 @@ RUN cargo install cargo-about
 RUN cargo about generate -c .cargo-about/about.toml -o RUST_LICENSE.txt .cargo-about/about.hbs
 
 # Combine Projects
-FROM debian:13.1-slim AS runtime
+FROM debian:13.2-slim AS runtime
 WORKDIR /app
 COPY --from=web-builder /build/crates/lib-web/dist/LICENSE.txt WEB_LICENSE.txt
 COPY --from=rust-builder /build/target/release/server server
