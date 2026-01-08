@@ -1,7 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Rust - Test Release" type="CargoCommandRunConfiguration" factoryName="Cargo Command" folderName="Test">
-    <option name="command" value="test --release -- --exact" />
+  <configuration default="false" name="Rust - Run Server / Web Debug" type="CargoCommandRunConfiguration" factoryName="Cargo Command" folderName="Rust">
+    <option name="buildProfileId" value="dev" />
+    <option name="command" value="run --package server --bin server --features &quot;debug-web&quot;" />
     <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+    <envs />
     <option name="emulateTerminal" value="true" />
     <option name="channel" value="DEFAULT" />
     <option name="requiredFeatures" value="true" />
@@ -9,7 +11,6 @@
     <option name="withSudo" value="false" />
     <option name="buildTarget" value="REMOTE" />
     <option name="backtrace" value="SHORT" />
-    <envs />
     <option name="isRedirectInput" value="false" />
     <option name="redirectInputPath" value="" />
     <method v="2">
