@@ -1,0 +1,16 @@
+[package]
+name = "lib-middleware"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+publish.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+axum.workspace = true
+tower = "0.5.2"
+futures-util.workspace = true
+serde = { workspace = true, features = ["derive"] }
+serde_json.workspace = true
+chrono = "0.4.39"
+rand = "0.10.0-rc.6"

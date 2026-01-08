@@ -1,25 +1,36 @@
 use axum::Router;
 use axum::response::Redirect;
 use lib_api_router::api_router;
+use lib_middleware::WideEventLoggerLayer;
+use std::env;
 use std::net::{Ipv4Addr, SocketAddr};
 use tokio::net::TcpListener;
 
 #[cfg(not(feature = "debug-web"))]
 use lib_web_router::web_router;
 
-#[cfg(not(feature = "debug-web"))]
 fn router() -> Router {
-    Router::new()
-        .nest_service("/api", api_router())
-        .nest_service("/web", web_router())
-        .fallback(|| async { Redirect::temporary("/web") })
-}
+    let sampling_enabled = env::var("WIDE_EVENT_SAMPLING_ENABLED")
+        .map(|v| v.parse().unwrap_or(true))
+        .unwrap_or(true);
 
-#[cfg(feature = "debug-web")]
-fn router() -> Router {
-    Router::new()
-        .nest_service("/api", api_router())
-        .fallback(|| async { Redirect::temporary("http://127.0.0.1:4000/web") })
+    let router = Router::new().nest_service("/api", api_router());
+
+    #[cfg(not(feature = "debug-web"))]
+    let router = router
+        .nest_service("/web", web_router())
+        .fallback(|| async { Redirect::temporary("/web") });
+
+    #[cfg(feature = "debug-web")]
+    let router = router.fallback(|| async { Redirect::temporary("http://127.0.0.1:4000/web") });
+
+    router.layer(WideEventLoggerLayer::new(
+        sampling_enabled,
+        None,
+        None,
+        None,
+        None,
+    ))
 }
 
 #[tokio::main]

@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/crates/lib-web-router/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/lib-web/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crates/lib-web/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/lib-middleware/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
       <excludeFolder url="file://$MODULE_DIR$/crates/lib-web/dist" />
     </content>
