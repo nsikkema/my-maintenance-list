@@ -7,7 +7,7 @@ use std::net::{Ipv4Addr, SocketAddr};
 use tokio::net::TcpListener;
 
 #[cfg(not(feature = "debug-web"))]
-use lib_web_router::web_router;
+use lib_router_web::web_router;
 
 fn router() -> Router {
     let sampling_enabled = env::var("WIDE_EVENT_SAMPLING_ENABLED")

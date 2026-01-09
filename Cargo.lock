@@ -454,7 +454,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "lib-web-router"
+name = "lib-router-web"
 version = "0.1.0"
 dependencies = [
  "axum",
@@ -781,7 +781,7 @@ dependencies = [
  "axum",
  "lib-middleware",
  "lib-router-api",
- "lib-web-router",
+ "lib-router-web",
  "tokio",
 ]
 

@@ -13,9 +13,9 @@ publish = false
 
 [workspace.dependencies]
 lib-data-web = { path = "crates/lib-data-web" }
-lib-web-router = { path = "crates/lib-web-router" }
 lib-middleware = { path = "crates/lib-middleware" }
 lib-router-api = { path = "crates/lib-router-api" }
+lib-router-web = { path = "crates/lib-router-web" }
 
 axum = "~0.8.8"
 axum-extra = "~0.12.5"

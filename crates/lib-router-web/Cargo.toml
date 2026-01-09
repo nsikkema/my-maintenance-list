@@ -1,5 +1,5 @@
 [package]
-name = "lib-web-router"
+name = "lib-router-web"
 edition.workspace = true
 license.workspace = true
 publish.workspace = true

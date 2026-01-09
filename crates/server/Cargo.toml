@@ -10,9 +10,9 @@ rust-version.workspace = true
 debug-web = []
 
 [dependencies]
-lib-web-router.workspace = true
 lib-middleware.workspace = true
 lib-router-api.workspace = true
+lib-router-web.workspace = true
 
 axum.workspace = true
 tokio.workspace = true
