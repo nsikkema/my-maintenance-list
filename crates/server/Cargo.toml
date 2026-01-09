@@ -10,7 +10,7 @@ rust-version.workspace = true
 debug-web = []
 
 [dependencies]
-lib-middleware.workspace = true
+lib-middleware-wide-events.workspace = true
 lib-router-api.workspace = true
 lib-router-web.workspace = true
 

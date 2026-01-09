@@ -13,7 +13,7 @@ publish = false
 
 [workspace.dependencies]
 lib-data-web = { path = "crates/lib-data-web" }
-lib-middleware = { path = "crates/lib-middleware" }
+lib-middleware-wide-events = { path = "crates/lib-middleware-wide-events" }
 lib-router-api = { path = "crates/lib-router-api" }
 lib-router-web = { path = "crates/lib-router-web" }
 

@@ -434,7 +434,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "lib-middleware"
+name = "lib-middleware-wide-events"
 version = "0.1.0"
 dependencies = [
  "axum",
@@ -779,7 +779,7 @@ name = "server"
 version = "0.1.0"
 dependencies = [
  "axum",
- "lib-middleware",
+ "lib-middleware-wide-events",
  "lib-router-api",
  "lib-router-web",
  "tokio",
