@@ -1,6 +1,7 @@
 use crate::wide_event::WideEvent;
 use axum::{extract::Request, response::Response};
 use futures_util::future::BoxFuture;
+use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
 use std::task::{Context, Poll};
 use std::time::Instant;
@@ -11,33 +12,19 @@ pub struct WideEventLoggerLayer<F> {
     sampling_enabled: bool,
     print_fn: F,
 
-    service: Option<String>,
-    version: Option<String>,
-    deployment_id: Option<String>,
-    region: Option<String>,
+    keys: HashMap<String, String>,
 }
 
 impl<F> WideEventLoggerLayer<F>
 where
     F: Fn(String) + Send + Sync + Clone + 'static,
 {
-    pub fn new(
-        sampling_enabled: bool,
-        print_fn: F,
-
-        service: Option<String>,
-        version: Option<String>,
-        deployment_id: Option<String>,
-        region: Option<String>,
-    ) -> Self {
+    pub fn new(sampling_enabled: bool, print_fn: F, keys: HashMap<String, String>) -> Self {
         Self {
             sampling_enabled,
             print_fn,
 
-            service,
-            version,
-            deployment_id,
-            region,
+            keys,
         }
     }
 }
@@ -55,10 +42,7 @@ where
             sampling_enabled: self.sampling_enabled,
             print_fn: self.print_fn.clone(),
 
-            service: self.service.clone(),
-            version: self.version.clone(),
-            deployment_id: self.deployment_id.clone(),
-            region: self.region.clone(),
+            keys: self.keys.clone(),
         }
     }
 }
@@ -70,10 +54,7 @@ pub struct WideEventLogger<S, F> {
     sampling_enabled: bool,
     print_fn: F,
 
-    service: Option<String>,
-    version: Option<String>,
-    deployment_id: Option<String>,
-    region: Option<String>,
+    keys: HashMap<String, String>,
 }
 
 impl<S, F> Service<Request> for WideEventLogger<S, F>
@@ -107,10 +88,7 @@ where
             request_id,
             method,
             path,
-            self.service.clone(),
-            self.version.clone(),
-            self.deployment_id.clone(),
-            self.region.clone(),
+            self.keys.clone(),
         )));
 
         request.extensions_mut().insert(Arc::clone(&event));
@@ -155,7 +133,8 @@ mod tests {
 
         let layer = WideEventLoggerLayer::new(
             false, // sampling disabled (log everything)
-            print_fn, None, None, None, None,
+            print_fn,
+            HashMap::new(),
         );
 
         let mut service = layer.layer(tower::service_fn(|_req: Request| async {

@@ -20,14 +20,9 @@ pub(crate) struct Event {
 
 #[derive(Serialize, Clone)]
 pub struct WideEvent {
-    #[serde(skip_serializing_if = "Option::is_none")]
-    service: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    version: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    deployment_id: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    region: Option<String>,
+    #[serde(skip_serializing_if = "HashMap::is_empty")]
+    #[serde(flatten)]
+    keys: HashMap<String, String>,
 
     #[serde(skip_serializing_if = "Option::is_none")]
     request_id: Option<String>,
@@ -52,16 +47,10 @@ impl WideEvent {
         request_id: Option<String>,
         method: String,
         path: String,
-        service: Option<String>,
-        version: Option<String>,
-        deployment_id: Option<String>,
-        region: Option<String>,
+        keys: HashMap<String, String>,
     ) -> Self {
         Self {
-            service,
-            version,
-            deployment_id,
-            region,
+            keys,
 
             request_id,
 

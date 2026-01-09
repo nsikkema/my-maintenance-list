@@ -2,6 +2,7 @@ use axum::Router;
 use axum::response::Redirect;
 use lib_middleware_wide_events::wide_event_layer::WideEventLoggerLayer;
 use lib_router_api::api_router;
+use std::collections::HashMap;
 use std::env;
 use std::net::{Ipv4Addr, SocketAddr};
 use tokio::net::TcpListener;
@@ -31,10 +32,7 @@ fn router() -> Router {
     router.layer(WideEventLoggerLayer::new(
         sampling_enabled,
         |s: String| println!("{}", s),
-        None,
-        None,
-        None,
-        None,
+        HashMap::new(),
     ))
 }
 
