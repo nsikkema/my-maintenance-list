@@ -12,7 +12,7 @@ license = "MIT OR Apache-2.0"
 publish = false
 
 [workspace.dependencies]
-lib-web = { path = "crates/lib-web" }
+lib-data-web = { path = "crates/lib-data-web" }
 lib-web-router = { path = "crates/lib-web-router" }
 lib-middleware = { path = "crates/lib-middleware" }
 lib-router-api = { path = "crates/lib-router-api" }

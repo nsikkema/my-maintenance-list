@@ -420,6 +420,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "lib-data-web"
+version = "0.1.0"
+dependencies = [
+ "camino",
+ "flate2",
+ "glob",
+ "itertools",
+ "lib-data-web",
+ "mime_guess",
+ "phf",
+ "phf_codegen",
+]
+
+[[package]]
 name = "lib-middleware"
 version = "0.1.0"
 dependencies = [
@@ -440,25 +454,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "lib-web"
-version = "0.1.0"
-dependencies = [
- "camino",
- "flate2",
- "glob",
- "itertools",
- "lib-web",
- "mime_guess",
- "phf",
- "phf_codegen",
-]
-
-[[package]]
 name = "lib-web-router"
 version = "0.1.0"
 dependencies = [
  "axum",
- "lib-web",
+ "lib-data-web",
 ]
 
 [[package]]

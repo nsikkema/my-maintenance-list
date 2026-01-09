@@ -3,7 +3,7 @@ use axum::extract::Path;
 use axum::http::{HeaderMap, HeaderValue, header};
 use axum::response::IntoResponse;
 use axum::routing::get;
-use lib_web::{get_file_data, get_index_data};
+use lib_data_web::{get_file_data, get_index_data};
 
 async fn web_route(request_headers: HeaderMap, path: Option<Path<String>>) -> impl IntoResponse {
     let path_string = match path {

@@ -7,7 +7,7 @@ version.workspace = true
 rust-version.workspace = true
 
 [dependencies]
-lib-web.workspace = true
+lib-data-web.workspace = true
 
 axum.workspace = true
 
