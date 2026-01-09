@@ -14,3 +14,6 @@ serde = { workspace = true, features = ["derive"] }
 serde_json.workspace = true
 chrono = "0.4.39"
 rand = "0.10.0-rc.6"
+
+[dev-dependencies]
+tokio.workspace = true
