@@ -19,6 +19,10 @@ fn router() -> Router {
     #[cfg(not(feature = "debug-web"))]
     let router = router
         .nest_service("/web", web_router())
+        .route(
+            "/favicon.ico",
+            axum::routing::get(|| async { Redirect::temporary("/web/favicon.ico") }),
+        )
         .fallback(|| async { Redirect::temporary("/web") });
 
     #[cfg(feature = "debug-web")]
