@@ -420,13 +420,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "lib-api-router"
-version = "0.1.0"
-dependencies = [
- "axum",
-]
-
-[[package]]
 name = "lib-middleware"
 version = "0.1.0"
 dependencies = [
@@ -437,6 +430,13 @@ dependencies = [
  "serde",
  "serde_json",
  "tower",
+]
+
+[[package]]
+name = "lib-router-api"
+version = "0.1.0"
+dependencies = [
+ "axum",
 ]
 
 [[package]]
@@ -779,8 +779,8 @@ name = "server"
 version = "0.1.0"
 dependencies = [
  "axum",
- "lib-api-router",
  "lib-middleware",
+ "lib-router-api",
  "lib-web-router",
  "tokio",
 ]

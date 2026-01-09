@@ -1,7 +1,7 @@
 use axum::Router;
 use axum::response::Redirect;
-use lib_api_router::api_router;
 use lib_middleware::WideEventLoggerLayer;
+use lib_router_api::api_router;
 use std::env;
 use std::net::{Ipv4Addr, SocketAddr};
 use tokio::net::TcpListener;

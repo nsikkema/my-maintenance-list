@@ -12,10 +12,10 @@ license = "MIT OR Apache-2.0"
 publish = false
 
 [workspace.dependencies]
-lib-api-router = { path = "crates/lib-api-router" }
 lib-web = { path = "crates/lib-web" }
 lib-web-router = { path = "crates/lib-web-router" }
 lib-middleware = { path = "crates/lib-middleware" }
+lib-router-api = { path = "crates/lib-router-api" }
 
 axum = "~0.8.8"
 axum-extra = "~0.12.5"
